@@ -6,5 +6,16 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'script.js'
-    }
+    },
+    module: {
+      rules: [{
+          test: /\.jsx?$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          query: {
+              cacheDirectory: true,
+              presets: ["@babel/preset-env"]
+          }
+      }]
+  }
 }
